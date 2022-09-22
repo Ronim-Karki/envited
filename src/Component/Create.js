@@ -1,14 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StreetPicker } from './Date/StreetPicker';
 import { Link } from 'react-router-dom';
 import DatePicker from './Date/DatePicker';
 import BirthDayCake from '../Images/BirthdayCake.png';
 import { useGlobalContext } from '../context';
 const Create = () => {
-  const { value, time, street, obj, setObj } = useGlobalContext();
+  const {
+    setStartDate,
+    startDate,
+    time,
+    setTime,
+    street,
+    setStreet,
+    name,
+    setName,
+  } = useGlobalContext();
 
   const onClickHappen = () => {
-    setObj({ value, time, street });
+    setStartDate(startDate);
+    setTime(time);
+    setStreet(street);
+    setName(name);
   };
   return (
     <div className="birthday-container">
@@ -18,17 +30,17 @@ const Create = () => {
           Hosted by <strong>Elysia</strong>
         </p> */}
         <div>
-          <p className="title-birthday-h3">Select Date for Party</p>
+          <p className="title-birthday-h3-p">Select Date for Party</p>
           <DatePicker />
         </div>
         <div>
-          <p className="title-birthday-h3">Select street for Party</p>
+          <p className="title-birthday-h3-p">Select street for Party</p>
           <StreetPicker />
         </div>
         <br />
-        <div className="btn">
+        <div className="btn" onClick={() => onClickHappen()}>
           <Link to="/event" className="btn">
-            Create
+            Next
           </Link>
           {/* <Link
             

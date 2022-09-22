@@ -1,15 +1,19 @@
 import React from 'react';
-import { FaCalendarAlt, FaAngleRight } from 'react-icons/fa';
+import { FaCalendarAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../context';
 // import Calender from 'react-calendar';
 const DatePicker = () => {
-  const { value, setValue, time, setTime } = useGlobalContext();
+  const { startDate, setStartDate, time, setTime, name, setName } =
+    useGlobalContext();
 
-  const onChangeDate = (e) => {
-    setValue(e.target.value);
+  const onChangeDate = (value) => {
+    setStartDate(value);
   };
-  const onChangeTime = (e) => {
-    setTime(e.target.value);
+  const onChangeTime = (value) => {
+    setTime(value);
+  };
+  const onChangename = (value) => {
+    setName(value);
   };
   return (
     <div className="time-container">
@@ -17,24 +21,33 @@ const DatePicker = () => {
         <FaCalendarAlt />
       </div>
       <div className="time-text">
+        <label for="hoster">Name</label>
         <input
-          className="time-1"
-          type="date"
+          className="date-1"
+          type="text"
+          id="hoster"
+          name="hoster"
+          value={name}
+          onChange={(e) => onChangename(e.target.value)}
+        />
+        <label for="startDate">Start Date and Time</label>
+        <input
+          className="date-1"
+          type="datetime-local"
           id="date"
-          name="date"
-          value={value}
-          onChange={() => onChangeDate()}
+          name="startDate"
+          value={startDate}
+          onChange={(e) => onChangeDate(e.target.value)}
         />
+        <label for="FinishDate">End Date and Time</label>
         <input
-          type="time"
+          className="date-1"
+          type="datetime-local"
           id="time"
-          name="time"
+          name="FinishDate"
           value={time}
-          onChange={() => onChangeTime()}
+          onChange={(e) => onChangeTime(e.target.value)}
         />
-      </div>
-      <div className="time-arrow">
-        <FaAngleRight />
       </div>
     </div>
   );

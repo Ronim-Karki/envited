@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaMapMarkerAlt, FaAngleRight } from 'react-icons/fa';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 import { useGlobalContext } from '../../context';
 export const StreetPicker = () => {
   const { street, setStreet } = useGlobalContext();
 
-  const onChangeText = (e) => {
-    setStreet(e.target.value);
+  const onChangeText = (value) => {
+    setStreet(value);
   };
   return (
     <div className="time-container">
@@ -15,16 +15,13 @@ export const StreetPicker = () => {
       <div className="time-text">
         <p className="time-1">Street Name</p>
         <input
-          className="time-2"
+          className="date-1"
           type="text"
           id="street"
           placeholder="Please enter address"
           value={street}
-          onChange={() => onChangeText()}
+          onChange={(e) => onChangeText(e.target.value)}
         />
-      </div>
-      <div className="time-arrow">
-        <FaAngleRight />
       </div>
     </div>
   );

@@ -2,13 +2,25 @@ import React, { useContext, useState } from 'react';
 
 const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
-  const [value, setValue] = useState(null);
+  const [startDate, setStartDate] = useState(null);
   const [time, setTime] = useState(null);
   const [street, setStreet] = useState(null);
+  const [name, setName] = useState('');
   const [obj, setObj] = useState({});
   return (
     <AppContext.Provider
-      value={{ value, setValue, time, setTime, street, setStreet, obj, setObj }}
+      value={{
+        startDate,
+        setStartDate,
+        time,
+        setTime,
+        street,
+        setStreet,
+        obj,
+        setObj,
+        name,
+        setName,
+      }}
     >
       {children}
     </AppContext.Provider>

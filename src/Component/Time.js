@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCalendarAlt, FaAngleRight } from 'react-icons/fa';
 import { useGlobalContext } from '../context';
 const Time = () => {
-  const { value, time } = useGlobalContext();
+  const { startDate, time } = useGlobalContext();
   return (
     <div className="time-container">
       <div className="time">
@@ -10,10 +10,15 @@ const Time = () => {
       </div>
       <div className="time-text">
         <p className="time-1">
-          {new Date(value).toDateString} {time}
+          {new Date(startDate).toDateString()} &nbsp;
+          {new Date(startDate).toLocaleTimeString()}
         </p>
         <p className="time-2">
-          to <strong>19 August 1:00PM</strong> UTC +10
+          to &nbsp;
+          <strong>
+            {new Date(time).toDateString()} &nbsp;{' '}
+            {new Date(time).toLocaleTimeString()}
+          </strong>
         </p>
       </div>
       <div className="time-arrow">
