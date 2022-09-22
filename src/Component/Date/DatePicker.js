@@ -21,7 +21,9 @@ const DatePicker = () => {
         <FaCalendarAlt />
       </div>
       <div className="time-text">
-        <label for="hoster">Name</label>
+        <label className="time-1" for="hoster">
+          Name
+        </label>
         <input
           className="date-1"
           type="text"
@@ -30,7 +32,9 @@ const DatePicker = () => {
           value={name}
           onChange={(e) => onChangename(e.target.value)}
         />
-        <label for="startDate">Start Date and Time</label>
+        <label className="time-1" for="startDate">
+          Start Date and Time
+        </label>
         <input
           className="date-1"
           type="datetime-local"
@@ -39,7 +43,9 @@ const DatePicker = () => {
           value={startDate}
           onChange={(e) => onChangeDate(e.target.value)}
         />
-        <label for="FinishDate">End Date and Time</label>
+        <label className="time-1" for="FinishDate">
+          End Date and Time
+        </label>
         <input
           className="date-1"
           type="datetime-local"
